@@ -4,18 +4,18 @@ class Iperfer {
     boolean isServer = false;
 
     String hostname;
-    int port;
-    int time;
+    int port = -1;
+    int time = -1;
 
     boolean fail = false;
 
     try{
       // client
-      if(args[0] == "-c") {
+      if(args[0].equals("-c")) {
         isClient = true;
 
         // hostname
-        if (args[1] == "-h") {
+        if (args[1].equals("-h")) {
           hostname = args[2];
         }
         else {
@@ -24,7 +24,7 @@ class Iperfer {
         }
 
         // port
-        if (args[3] == "-p") {
+        if (args[3].equals("-p")) {
           port = Integer.parseInt(args[4]);
 
           if(port < 1024 || port > 65535) {
@@ -38,7 +38,7 @@ class Iperfer {
         }
 
         // time
-        if (args[5] == "-t") {
+        if (args[5].equals("-t")) {
           time = Integer.parseInt(args[6]);
         }
         else {
@@ -48,11 +48,11 @@ class Iperfer {
 
       }
       // server
-      else if(args[0] == "-s") {
+      else if(args[0].equals("-s")) {
         isServer = true;
 
         // port
-        if (args[1] == "-p") {
+        if (args[1].equals("-p")) {
           port = Integer.parseInt(args[2]);
 
           if(port < 1024 || port > 65535) {
@@ -71,6 +71,7 @@ class Iperfer {
       fail = true;
     }
 
+
     if(fail) {
       return;
     }
@@ -78,7 +79,7 @@ class Iperfer {
       // TODO run client
     }
     else if(isServer) {
-      // TODO run server
+      IperferServer server = new IperferServer(port);
     }
   }
 }
