@@ -3,7 +3,7 @@ class Iperfer {
     boolean isClient = false;
     boolean isServer = false;
 
-    String hostname;
+    String hostname="";
     int port = -1;
     int time = -1;
 
@@ -12,6 +12,7 @@ class Iperfer {
     try{
       // client
       if(args[0].equals("-c")) {
+        // System.out.println("here");
         isClient = true;
 
         // hostname
@@ -76,7 +77,7 @@ class Iperfer {
       return;
     }
     else if(isClient) {
-      // TODO run client
+      Client client = new Client(hostname,port,time);
     }
     else if(isServer) {
       IperferServer server = new IperferServer(port);
