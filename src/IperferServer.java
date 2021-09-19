@@ -3,6 +3,7 @@ import java.net.Socket;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
+import java.time.Instant;
 
 
 public class IperferServer {
@@ -26,14 +27,19 @@ public class IperferServer {
         PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
     ) {
       String line;
+      long unixTimestamp = Instant.now().getEpochSecond();
 
       while ((line = in.readLine()) != null) {
-        outputLine = kkp.processInput(inputLine);
-        out.println(outputLine);
+        bytesReceived += line.getBytes().length;
       }
+
+      System.out.println("rate=" + (8 * bytesReceived / (Instant.now().getEpochSecond() - unixTimestamp)) + " Mbps");
+      System.out.println("received=" + bytesReceived / 1000 + " KB");
+
     }
+
     catch (Exception e) {
-      System.out.println(e);
+      System.out.println("excpetion: " + e);
     }
   }
 }
