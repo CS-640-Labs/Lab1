@@ -8,14 +8,14 @@ public class Client{
     private DataOutputStream out     = null;
     public  Client(String address, int port,int time){
         try{
-            System.out.println(x);
+            // System.out.println(x);
             socket = new Socket(address, port);
             out    = new DataOutputStream(socket.getOutputStream());
             long unixTimestamp = Instant.now().getEpochSecond();
             long time_limit = time+unixTimestamp;
             while(Instant.now().getEpochSecond()<time_limit){
-                for(int i=0;i<250;i++){
-                    out.writeInt(0);
+                for(int i=0;i<1000;i++){
+                    out.writeByte(0);
                 }
                 out.flush();
             }
