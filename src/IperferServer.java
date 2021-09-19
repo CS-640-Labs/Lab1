@@ -15,10 +15,6 @@ public class IperferServer {
     this.startSocket();
   }
 
-  public static void main(String args[]) {
-
-  }
-
   private void startSocket() {
     try (
         ServerSocket server = new ServerSocket(this.port);
