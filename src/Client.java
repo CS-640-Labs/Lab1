@@ -22,7 +22,7 @@ public class Client{
                 out.flush();
             }
             // System.out.print("the rate is");
-            System.out.println("rate=" + (8 * bytesSent / (time)) + " Mbps");
+            System.out.println("rate=" + ((8 * bytesSent) / (time*1000000)) + " Mbps");
             System.out.println("Sent=" + bytesSent / 1000 + " KB");
             out.close();
             socket.close();

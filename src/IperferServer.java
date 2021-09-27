@@ -29,7 +29,7 @@ public class IperferServer {
         bytesReceived += line.getBytes().length;
       }
 
-      System.out.println("rate=" + (8 * bytesReceived / (Instant.now().getEpochSecond() - unixTimestamp)) + " Mbps");
+      System.out.println("rate=" + (8 * bytesReceived / (Instant.now().getEpochSecond() - unixTimestamp)*1000) + " Mbps");
       System.out.println("received=" + bytesReceived / 1000 + " KB");
 
     }
