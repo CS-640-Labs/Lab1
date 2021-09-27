@@ -2,8 +2,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
-import java.io.PrintWriter;
-import java.time.Instant;
 
 
 public class IperferServer {
@@ -20,16 +18,15 @@ public class IperferServer {
         ServerSocket server = new ServerSocket(this.port);
         Socket socket = server.accept();
         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
     ) {
       String line;
-      long unixTimestamp = Instant.now().getEpochSecond();
+      long unixTimestamp = System.currentTimeMillis();
 
       while ((line = in.readLine()) != null) {
         bytesReceived += line.getBytes().length;
       }
 
-      System.out.println("rate=" + (8 * bytesReceived / (Instant.now().getEpochSecond() - unixTimestamp)*1000) + " Mbps");
+      System.out.println("rate=" + ((8 * bytesReceived) / (((System.currentTimeMillis() - unixTimestamp)/1000.0)*1000000.0)) + " Mbps");
       System.out.println("received=" + bytesReceived / 1000 + " KB");
 
     }
