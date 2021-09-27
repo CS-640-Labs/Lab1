@@ -1,6 +1,7 @@
 import java.net.*;
 import java.io.*;
 import java.time.Instant;
+import java.lang.Math;
 
 public class Client{
     private Socket socket            = null;
@@ -22,7 +23,8 @@ public class Client{
                 }
                 out.flush();
             }
-            System.out.println("rate=" + ((8 * bytesSent) / (time*1000000.0)) + " Mbps");
+            double var = ((8 * bytesSent) / (time*1000000.0));
+            System.out.printf("rate= %.3f Mbps\n",var);
             System.out.println("Sent=" + bytesSent / 1000 + " KB");
             out.close();
             socket.close();
