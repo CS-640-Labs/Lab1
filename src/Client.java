@@ -23,7 +23,8 @@ public class Client{
                 }
                 out.flush();
             }
-            double var = ((8 * bytesSent) / (time*100000.0));
+
+            double var = ((8 * bytesSent) / (time*1000000.0));
             System.out.printf("rate= %.3f Mbps\n",var);
             System.out.println("Sent=" + bytesSent / 1000 + " KB");
             out.close();
