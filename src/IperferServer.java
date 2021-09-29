@@ -19,11 +19,10 @@ public class IperferServer {
         Socket socket = server.accept();
         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
     ) {
-      String line;
       long unixTimestamp = System.currentTimeMillis();
 
-      while ((line = in.readLine()) != null) {
-        bytesReceived += line.getBytes().length;
+      while (in.read() != -1) {
+        bytesReceived += 1;
       }
       double var = ((8 * bytesReceived) / (((System.currentTimeMillis() - unixTimestamp)/1000.0)*1000000.0));
       System.out.printf("rate= %.3f Mbps\n",var);
