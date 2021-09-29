@@ -21,8 +21,11 @@ public class IperferServer {
     ) {
       long unixTimestamp = System.currentTimeMillis();
 
-			String line = in.readLine();
-			bytesReceived += line.getBytes().length;
+
+
+      while((in.read()) != -1) {
+        bytesReceived += 1;
+      }
 
       double var = ((8 * bytesReceived) / (((System.currentTimeMillis() - unixTimestamp)/1000.0)*1000000.0));
       System.out.printf("rate= %.3f Mbps\n",var);
