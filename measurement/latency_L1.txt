@@ -1,0 +1,9 @@
+for h1-h2
+Data outputted - 30 packets transmitted, 30 received, 0% packet loss, time 29039ms
+                 rtt min/avg/max/mdev = 80.189/80.890/85.974/1.330 ms
+
+Average RTT - 80.890 ms
+latentcy - 40.445ms
+
+
+

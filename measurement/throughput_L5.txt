@@ -1,0 +1,6 @@
+Client - 
+rate - 12.082 mbps
+sent - 45307 KB
+Server - 
+rate - 12.079mbps
+received - 45307 KB

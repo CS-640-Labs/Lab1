@@ -1,0 +1,7 @@
+Client statistics - 
+rate - 10.587 mbps
+Sent - 39703 KB
+
+Sever statistics - 
+rate - 10.583 mbps
+Sent - 39703 KB

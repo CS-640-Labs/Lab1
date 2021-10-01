@@ -1,0 +1,7 @@
+Client statistics - 
+rate - 14.061 mbps
+Sent - 52727Kb
+
+Server statistics - 
+rate - 14.055 mbps
+recieved - 52727Kb
